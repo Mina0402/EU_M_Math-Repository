@@ -1,0 +1,18 @@
+import numpy as np
+%matplotlib inline
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+random_set1=np.random.uniform(0.0,1.0,10000)
+random_set2=np.random.uniform(0.0,1.0,10000)
+
+inside_circle=(random_set1**2+random_set2**2)<1
+number_inside_circle=np.sum(inside_circle)
+
+inside_x = random_set1[inside_circle]
+inside_y = random_set2[inside_circle]
+outside_x = random_set1[~inside_circle]
+outside_y = random_set2[~inside_circle]
+
+pi_approximation = (number_inside_circle/10000)*4
+print("円周率は",pi_approximation)
